@@ -1,4 +1,3 @@
-```mermaid
 graph TD;
     A[Abrir la página de notas] -->|GET HTML| B((Navegador));
     B -->|HTML document| C((Navegador));
@@ -9,7 +8,6 @@ graph TD;
     G -->|GET data.json| H((Navegador));
     H -->|JSON data| I((Navegador));
     I -->|Render notas| J((Navegador));
-
     J -->|Usuario escribe nueva nota y hace clic en "Save"| K((Navegador));
     K -->|HTTP POST /new_note| L((Servidor));
     L -->|302 Redirect| M((Navegador));
@@ -22,4 +20,3 @@ graph TD;
     M -->|GET data.json| T((Navegador));
     T -->|Updated JSON data| U((Navegador));
     U -->|Render updated notas| V((Navegador));
-```

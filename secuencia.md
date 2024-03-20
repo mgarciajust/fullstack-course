@@ -1,28 +1,30 @@
 ```mermaid
 sequenceDiagram
-    User->>Browser: Ingresa la URL
-    Browser->>Server: bla bla - GET HTML
+    User->>Browser: Accesses https://studies.cs.helsinki.fi/exampleapp/notes through the address bar
+    Browser->>Server: The browser fetches HTML code from the server - GET HTML
     Server->>Browser: Return HTML code
-    Browser->>Server: GET main.css
+    Browser->>Server: HTML links trigger browser to fetch stylesheet - GET main.css
     Server->>Browser: Return CSS file main.css
-    Browser->>Server: GET main.js
+    Browser->>Server: HTML links trigger browser to fetch javaScript - GET main.js
     Server->>Browser: Return JavaScript main.js
-    Browser->>Browser: Ejecuta el código de main.js
-    Browser->>Server: GET data.json
-    Server->>Browser: Return JSON data
-    Browser->>Browser: Render notas
-    User->>Browser: Usuario escribe nueva nota y hace clic en Save
-    Browser->>Server: HTTP POST /new_note
-    Server->>Browser: HTTP 302 Redirect
-    Browser->>Server: GET /notes
+    Browser->>Browser: Browser runs JavaScript code 
+    Browser->>Server: Code issues HTTP GET request JSON data - GET data.json
+    Server->>Browser: Return data.json
+    Browser->>Browser: After fetching data, browser triggers event handler to display notes
+    User->>Browser: User writes new note and clicks on Save
+    Browser->>Server: When form button clicked, browser sends user input to server - HTTP POST /new_note
+    Server->>Browser: Server responds with HTTP status code 302, indicating redirection - HTTP 302 Redirect
+    Browser->>Server: Browser makes new HTTP GET request to location header address notes - GET /notes
+    Server->>Browser: Return HTML code 
     Server->>Browser: Return HTML code
-    Browser->>Server: GET main.css
+    Browser->>Server: HTML links trigger browser to fetch stylesheet - GET main.css
     Server->>Browser: Return CSS file main.css
-    Browser->>Server: GET main.js
+    Browser->>Server: HTML links trigger browser to fetch javaScript - GET main.js
     Server->>Browser: Return JavaScript main.js
-    Browser->>Browser: Ejecuta el código de main.js
-    Browser->>Server: GET data.json
-    Server->>Browser: Return JSON data
+    Browser->>Browser: Browser runs JavaScript code 
+    Browser->>Server: Code issues HTTP GET request JSON data - GET data.json
+    Server->>Browser: Return raw data of the notes (data.json)
+    Server->>Server: Creates a new note object, adding to array notes
     Browser->>Browser: Updated JSON data
-    Browser->>Browser: Render updated notas
+    Browser->>Browser: Render updated notes
 ```

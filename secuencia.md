@@ -1,29 +1,27 @@
 ```mermaid
 sequenceDiagram
-    participant Usuario as U
-    participant Navegador as N
-    participant Servidor as S
-
-    U->>N: Abrir la página de notas
-    N->>N: GET HTML
-    N->>N: HTML document
-    N->>N: GET main.css
-    N->>N: the css file
-    N->>N: GET main.js
-    N->>N: the JavaScript file
-    N->>N: GET data.json
-    N->>N: JSON data
-    N->>N: Render notas
-    U->>N: Usuario escribe nueva nota y hace clic en Save
-    N->>S: HTTP POST /new_note
-    S->>N: 302 Redirect
-    N->>N: GET /notes
-    N->>N: HTML document
-    N->>N: GET main.css
-    N->>N: the css file
-    N->>N: GET main.js
-    N->>N: the JavaScript file
-    N->>N: GET data.json
-    N->>N: Updated JSON data
-    N->>N: Render updated notas
+    Browser->>Server: GET HTML
+    Server->>Browser: Return HTML code
+    Browser->>Server: GET main.css
+    Server->>Browser: Return CSS file main.css
+    Browser->>Server: GET main.js
+    Server->>Browser: Return JavaScript main.js
+    Browser->>Browser: Ejecuta el código de main.js
+    Browser->>Server: GET data.json
+    Server->>Browser: Return JSON data
+    Browser->>Browser: Render notas
+    User->>Browser: Usuario escribe nueva nota y hace clic en Save
+    Browser->>Server: HTTP POST /new_note
+    Server->>Browser: HTTP 302 Redirect
+    Browser->>Server: GET /notes
+    Server->>Browser: Return HTML code
+    Browser->>Server: GET main.css
+    Server->>Browser: Return CSS file main.css
+    Browser->>Server: GET main.js
+    Server->>Browser: Return JavaScript main.js
+    Browser->>Browser: Ejecuta el código de main.js
+    Browser->>Server: GET data.json
+    Server->>Browser: Return JSON data
+    Browser->>Browser: Updated JSON data
+    Browser->>Browser: Render updated notas
 ```

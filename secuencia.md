@@ -1,5 +1,6 @@
 ```mermaid
 sequenceDiagram
+    User->>Browser: Accede a la URL https://studies.cs.helsinki.fi/exampleapp/notes
     Browser->>Server: GET HTML
     Server->>Browser: Return HTML code
     Browser->>Server: GET main.css

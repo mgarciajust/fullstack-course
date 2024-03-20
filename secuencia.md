@@ -1,7 +1,7 @@
 ```mermaid
 sequenceDiagram
     User->>Browser: Ingresa la URL
-    Browser->>Server: GET HTML
+    Browser->>Server: bla bla - GET HTML
     Server->>Browser: Return HTML code
     Browser->>Server: GET main.css
     Server->>Browser: Return CSS file main.css

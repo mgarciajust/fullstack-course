@@ -9,7 +9,7 @@ graph TD;
     G -->|GET data.json| H((Navegador));
     H -->|JSON data| I((Navegador));
     I -->|Render notas| J((Navegador));
-    J -->|Usuario escribe nueva nota y hace clic en "Save"| K((Navegador));
+    J -->|Usuario escribe nueva nota y hace clic en Save| K((Navegador));
     K -->|HTTP POST /new_note| L((Servidor));
     L -->|302 Redirect| M((Navegador));
     M -->|GET /notes| N((Navegador));

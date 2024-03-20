@@ -1,3 +1,4 @@
+```mermaid
 graph TD;
     A[Abrir la página de notas] -->|GET HTML| B((Navegador));
     B -->|HTML document| C((Navegador));
@@ -20,3 +21,4 @@ graph TD;
     M -->|GET data.json| T((Navegador));
     T -->|Updated JSON data| U((Navegador));
     U -->|Render updated notas| V((Navegador));
+```

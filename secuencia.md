@@ -12,17 +12,9 @@ sequenceDiagram
     Server->>Browser: Return data.json
     Browser->>Browser: After fetching data, browser triggers event handler to display notes
     User->>Browser: User writes new note and clicks on Save
-    Browser->>Server: When form button clicked, browser sends user input to server - HTTP POST /new_note
+    Browser->>Server: Code issues HTTP POST request to new_note_spa
+    Browser->>Server: Content-Type header informs server data is represented in JSON format
     Server->>Server: Creates a new note object, adding to array notes
-    Server->>Browser: Server responds with HTTP status code 302, indicating redirection - HTTP 302 Redirect
-    Browser->>Server: Browser makes new HTTP GET request to location header address notes - GET /notes
-    Server->>Browser: Return HTML code 
-    Browser->>Server: HTML links trigger browser to fetch stylesheet - GET main.css
-    Server->>Browser: Return CSS file main.css
-    Browser->>Server: HTML links trigger browser to fetch javaScript - GET main.js
-    Server->>Browser: Return JavaScript main.js
-    Browser->>Browser: Browser runs JavaScript code 
-    Browser->>Server: Code issues HTTP GET request JSON data - GET data.json
-    Server->>Browser: Return data.json
-    Browser->>Browser: After fetching data, browser triggers event handler to display notes
+    Server->>Browser: Server responds with HTTP status code 201
+    Browser: el servidor no solicita una redirección, el navegador permanece en la misma página y no envía más solicitudes HTTP
 ```

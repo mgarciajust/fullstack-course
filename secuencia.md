@@ -1,7 +1,7 @@
 ```mermaid
 sequenceDiagram
-    User->>Browser: Ingresa la URL
-    https://studies.cs.helsinki.fi/\nexampleapp/notes
+    User->>Browser: Ingresa la URL 
+    Browser->>Browser: https://studies.cs.helsinki.fi/\nexampleapp/notes
     Browser->>Server: GET HTML
     Server->>Browser: Return HTML code
     Browser->>Server: GET main.css
